@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.hfy.project.api.model.UserModel;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequestMapping("/")
@@ -24,7 +26,7 @@ public class DemoController {
 
 	@SuppressWarnings("resource")
 	@RequestMapping("/api")
-	public void get(HttpServletRequest reqeust, HttpServletResponse response) {
+	public void get(@RequestBody UserModel user) {
 		try {
 			FileInputStream fis = new FileInputStream("C:\\Users\\fuxin\\Pictures\\a.jpg");
 			int a = 0;
