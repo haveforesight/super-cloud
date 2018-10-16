@@ -1,0 +1,9 @@
+spring:
+  redis:
+    cluster:
+      nodes:
+      - 192.168.40.151:7000,192.168.40.151:7001,192.168.40.151:7002,192.168.40.151:7003,192.168.40.151:7004
+  application:
+    name: eureka-redis
+server:
+  port: 8765

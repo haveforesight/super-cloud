@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.framework</groupId>
+  <artifactId>super-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+ <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<sptring-cloud.version>Finchley.RELEASE</sptring-cloud.version>
+</properties>
+
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.0.RELEASE</version>
+</parent>
+
+
+<dependencyManagement>
+     <dependencies>
+      <!--   <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>2.0.0.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency> -->
+        
+        <dependency>
+            <!-- Import dependency management from Spring Boot -->
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${sptring-cloud.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+
+<build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <warSourceDirectory>${project.basedir}/src/main/webapp</warSourceDirectory>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      
+      <plugin>  
+        <groupId>org.apache.maven.plugins</groupId>  
+        <artifactId>maven-compiler-plugin</artifactId>  
+        <configuration>  
+            <source>1.8</source>  
+            <target>1.8</target>  
+        </configuration>  
+    </plugin> 
+    
+    </plugins>
+    
+    </build>  
+  <modules>  	
+  	<module>super-core</module>
+  	<module>config-server</module>
+  	<module>eureka-server</module>
+  	<module>eureka-login</module>
+  	<module>eureka-project-manage</module>
+  	<module>gateway-service</module>
+  	<module>super-elasticsearch</module>
+  	<module>eureka-redis</module>
+  </modules>
+  
+  
+  
+</project>

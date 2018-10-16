@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: eureka-login
+  cloud:
+    config:
+      uri: http://localhost:8761
+      fail-fast: true
+  profiles:
+    active: dev

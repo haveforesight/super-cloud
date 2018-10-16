@@ -1,0 +1,17 @@
+server:
+  port: 5000
+zuul:
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+  routes:
+    project_manage:
+      path: /project/**
+      serviceId: eureka-project-manage
+    eureka_login:
+      path: /login/**
+      serviceId: eureka-login
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/
