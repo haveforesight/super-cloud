@@ -35,5 +35,11 @@ public class DemoController {
 		}
 
 	}
+	
+	@RequestMapping("/download")
+	public String download(HttpServletResponse response) {
+		
+		return "";
+	}
 
 }
